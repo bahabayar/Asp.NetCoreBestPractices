@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Asp.NetCoreBestPractices.Core\Asp.NetCoreBestPractices.Core.csproj" />
+  </ItemGroup>
+
 </Project>
