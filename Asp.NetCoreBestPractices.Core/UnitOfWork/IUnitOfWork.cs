@@ -8,8 +8,8 @@ namespace Asp.NetCoreBestPractices.Core.UnitOfWork
 {
    public interface IUnitOfWork
     {
-        IProductRepository Product { get; }
-        ICategoryRepository Category { get; }
+        IProductRepository Products { get; }
+        ICategoryRepository Categories { get; }
         Task CommitAsync();
         void Commit();
     }
