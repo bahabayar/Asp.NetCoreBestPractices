@@ -1,5 +1,6 @@
 ﻿using Asp.NetCoreBestPractices.Core.Models;
 using Asp.NetCoreBestPractices.Data.Configurations;
+using Asp.NetCoreBestPractices.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,8 @@ namespace Asp.NetCoreBestPractices.Data
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
 
-
+            modelBuilder.ApplyConfiguration(new ProductSeed(new int[] {1,2}));
+            modelBuilder.ApplyConfiguration(new CategorySeed(new int[] { 1, 2 }));
         }
     }
 }
