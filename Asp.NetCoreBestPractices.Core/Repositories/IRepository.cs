@@ -10,7 +10,7 @@ namespace Asp.NetCoreBestPractices.Core.Repositories
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity,bool>> predicate);
+        IEnumerable<TEntity> Where(Expression<Func<TEntity,bool>> predicate);
 
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity,bool>> predicate);// Burda expression alduığın için yukarıdaki getbyId den 
         // farkı category.singleordefault dedğim zaman(x=>x.name="Kalem") dediğimiz zaman
