@@ -31,7 +31,10 @@ namespace Asp.NetCoreBestPractices.API
         {
             services.AddDbContext<AppDbContext>(options => 
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:SqlConstr"].ToString());
+                options.UseSqlServer(Configuration["ConnectionStrings:SqlConstr"].ToString(),o=> {
+
+                    o.MigrationsAssembly("Asp.NetCoreBestPractices.Data");
+                });
             
             });
             services.AddScoped<IUnitOfWork, UnitOfWork>(); 

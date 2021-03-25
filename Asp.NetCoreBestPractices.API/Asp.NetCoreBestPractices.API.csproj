@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Asp.NetCoreBestPractices.Core\Asp.NetCoreBestPractices.Core.csproj" />
     <ProjectReference Include="..\Asp.NetCoreBestPractices.Data\Asp.NetCoreBestPractices.Data.csproj" />
     <ProjectReference Include="..\Asp.NetCoreBestPractices.Service\Asp.NetCoreBestPractices.Service.csproj" />

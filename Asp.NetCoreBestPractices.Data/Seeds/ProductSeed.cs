@@ -23,7 +23,7 @@ namespace Asp.NetCoreBestPractices.Data.Seeds
                  new Product { Id = 3, Name = "Tükenmez Kalem", Price = 500m, Stock = 300, CategoryId = _ids[0] },
                  new Product { Id = 4, Name = "Küçük Boy Defter", Price = 200m, Stock = 100, CategoryId = _ids[1] },
                  new Product { Id = 5, Name = "Orta Boy Defter", Price = 200m, Stock = 100, CategoryId = _ids[1] },
-                 new Product { Id = 5, Name = "Büyük Boy Defter", Price = 200m, Stock = 100, CategoryId = _ids[1] }
+                 new Product { Id = 6, Name = "Büyük Boy Defter", Price = 200m, Stock = 100, CategoryId = _ids[1] }
                 );
         }
     }
