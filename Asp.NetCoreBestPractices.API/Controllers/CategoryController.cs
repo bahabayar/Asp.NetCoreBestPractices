@@ -1,4 +1,5 @@
 ﻿using Asp.NetCoreBestPractices.API.DTOs;
+using Asp.NetCoreBestPractices.Core.Models;
 using Asp.NetCoreBestPractices.Core.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -36,5 +37,13 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return Ok(_mapper.Map<CategoryDto>(category));
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Save(CategoryDto categoryDto)
+        {
+           var newCategory = await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+
+
+            return Created(string.Empty,_mapper.Map<CategoryDto>(newCategory));
+        }
     }
 }
