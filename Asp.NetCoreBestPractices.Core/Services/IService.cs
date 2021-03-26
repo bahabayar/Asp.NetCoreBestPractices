@@ -10,13 +10,13 @@ namespace Asp.NetCoreBestPractices.Core.Services
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
 
         Task<TEntity> SingleOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);// Burda expression alduığın için yukarıdaki getbyId den 
         // farkı category.singleordefault dedğim zaman(x=>x.name="Kalem") dediğimiz zaman
         //id yerine name ile dönebiliyo
-        Task AddAsync(TEntity entity);
-        Task AddRangeASync(IEnumerable<TEntity> entities);
+        Task<TEntity> AddAsync(TEntity entity);
+        Task<IEnumerable<TEntity>> AddRangeASync(IEnumerable<TEntity> entities);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
         TEntity Update(TEntity entity);

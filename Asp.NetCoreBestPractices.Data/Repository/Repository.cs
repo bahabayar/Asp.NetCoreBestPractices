@@ -30,9 +30,9 @@ namespace Asp.NetCoreBestPractices.Data.Repository
             await _dbset.AddRangeAsync(entities);
         }
 
-        public IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate)
         {
-            return _dbset.Where(predicate);
+            return await _dbset.Where(predicate).ToListAsync();
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
