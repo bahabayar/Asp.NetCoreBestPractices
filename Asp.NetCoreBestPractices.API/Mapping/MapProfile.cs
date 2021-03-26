@@ -13,8 +13,8 @@ namespace Asp.NetCoreBestPractices.API.Mapping
      
         public MapProfile()
         {
-            CreateMap<Category, CategoryDto>();
-            CreateMap<CategoryDto, Category>();
+            CreateMap<Category,CategoryDto>();
+            CreateMap<CategoryDto,Category>();
         }
     }
 }
