@@ -52,5 +52,14 @@ namespace Asp.NetCoreBestPractices.API.Controllers
 
             return NoContent();
         }
+        [HttpDelete("{id}")]
+
+        public IActionResult Remove(int id)
+        {
+            var deletedCategory = _categoryService.GetByIdAsync(id).Result;// method.Result yaptığımızda async ve await keywordundan kurtuluyoruz async çalışıyor yine
+            _categoryService.Remove(deletedCategory);
+            return NoContent();
+         
+        }
     }
 }
