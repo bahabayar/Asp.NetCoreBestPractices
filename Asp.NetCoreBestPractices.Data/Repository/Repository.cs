@@ -14,7 +14,7 @@ namespace Asp.NetCoreBestPractices.Data.Repository
     {
         protected readonly DbContext _context;
         private readonly DbSet<TEntity> _dbset;
-        public Repository(DbContext context)
+        public Repository(AppDbContext context)
         {
             _context = context;//Veritabanına ulaşıyoruz
             _dbset = context.Set<TEntity>();//Tablolara ulaşıyoruz
