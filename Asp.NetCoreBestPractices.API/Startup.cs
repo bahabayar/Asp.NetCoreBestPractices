@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Asp.NetCoreBestPractices.API
 {
@@ -35,7 +36,7 @@ namespace Asp.NetCoreBestPractices.API
         {
 
 
-
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
             services.AddScoped(typeof(IService<>),typeof(Service.Services.Service<>));
             services.AddScoped<ICategoryService, CategoryService>();

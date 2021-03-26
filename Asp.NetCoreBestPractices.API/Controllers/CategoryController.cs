@@ -1,4 +1,6 @@
-﻿using Asp.NetCoreBestPractices.Core.Services;
+﻿using Asp.NetCoreBestPractices.API.DTOs;
+using Asp.NetCoreBestPractices.Core.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,16 +15,18 @@ namespace Asp.NetCoreBestPractices.API.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
-        public CategoryController(ICategoryService categoryService)
+        private readonly IMapper _mapper;
+        public CategoryController(ICategoryService categoryService,IMapper mapper)
         {
             _categoryService = categoryService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _categoryService.GetAllAsync();
-            return Ok(categories);
+            return Ok(_mapper.Map<IEnumerable<CategoryDto>>(categories));
         }
     }
 }
