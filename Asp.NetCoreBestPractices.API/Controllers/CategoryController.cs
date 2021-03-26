@@ -37,14 +37,22 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return Ok(_mapper.Map<CategoryDto>(category));
         }
 
+        [HttpGet("{id}/products")]
+        public async Task<IActionResult> GetWithProductsById(int id)
+        {
+            var category = await _categoryService.GetWithProductsByIdAsync(id);
+            return Ok(_mapper.Map<CategoryWithProductDto>(category));
+
+        }
         [HttpPost]
         public async Task<IActionResult> Save(CategoryDto categoryDto)
         {
-           var newCategory = await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+            var newCategory = await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
 
 
-            return Created(string.Empty,_mapper.Map<CategoryDto>(newCategory));
+            return Created(string.Empty, _mapper.Map<CategoryDto>(newCategory));
         }
+
         [HttpPut]
         public IActionResult Update(CategoryDto categoryDto)
         {
@@ -52,14 +60,16 @@ namespace Asp.NetCoreBestPractices.API.Controllers
 
             return NoContent();
         }
-        [HttpDelete("{id}")]
 
+        [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
             var deletedCategory = _categoryService.GetByIdAsync(id).Result;// method.Result yaptığımızda async ve await keywordundan kurtuluyoruz async çalışıyor yine
             _categoryService.Remove(deletedCategory);
             return NoContent();
-         
+
         }
+
+
     }
 }
