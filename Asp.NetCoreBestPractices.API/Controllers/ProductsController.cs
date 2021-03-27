@@ -22,7 +22,12 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             _mapper = mapper;
         }
 
-
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+           var products = await _productService.GetAllAsync();
+            return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
+        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
