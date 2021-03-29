@@ -53,6 +53,17 @@ namespace Asp.NetCoreBestPractices.API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("addrange")]
+
+        public async Task<IActionResult> AddByRange(IEnumerable<Product> productDto)
+        {
+            var newproducts = await _productService.AddRangeAsync(productDto);
+            return Ok();
+        }
+
+        
+
 
         [HttpPut]
         public IActionResult Update(ProductDto productDto)
@@ -70,5 +81,13 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return NoContent();
 
         }
+        [HttpDelete]
+        [Route("removerange")]
+        public IActionResult RemoveRange(IEnumerable<Product> products)
+        {
+            _productService.RemoveRange(products);
+            return NoContent();
+        }
+
     }
 }
