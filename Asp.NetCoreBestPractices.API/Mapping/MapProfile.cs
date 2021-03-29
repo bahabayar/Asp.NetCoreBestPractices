@@ -19,6 +19,8 @@ namespace Asp.NetCoreBestPractices.API.Mapping
             CreateMap<CategoryWithProductDto, Category>();
             CreateMap<Product, ProductDto>();
             CreateMap<ProductDto, Product>();
+            CreateMap<Product,ProductWithCategoryDto>();
+            CreateMap<ProductWithCategoryDto, Product>();
             
         }
     }

@@ -25,7 +25,7 @@ namespace Asp.NetCoreBestPractices.Data.Repository
             await _dbset.AddAsync(entity);
         }
 
-        public async Task AddRangeASync(IEnumerable<TEntity> entities)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
         {
             await _dbset.AddRangeAsync(entities);
         }

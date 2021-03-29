@@ -16,7 +16,7 @@ namespace Asp.NetCoreBestPractices.Core.Services
         // farkı category.singleordefault dedğim zaman(x=>x.name="Kalem") dediğimiz zaman
         //id yerine name ile dönebiliyo
         Task<TEntity> AddAsync(TEntity entity);
-        Task<IEnumerable<TEntity>> AddRangeASync(IEnumerable<TEntity> entities);
+        Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities);
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
         TEntity Update(TEntity entity);

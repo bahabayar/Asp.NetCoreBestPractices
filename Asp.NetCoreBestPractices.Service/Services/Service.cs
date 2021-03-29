@@ -25,9 +25,9 @@ namespace Asp.NetCoreBestPractices.Service.Services
             return entity;
         }
 
-        public async Task<IEnumerable<TEntity>> AddRangeASync(IEnumerable<TEntity> entities)
+        public async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities)
         {
-            await _repository.AddRangeASync(entities);
+            await _repository.AddRangeAsync(entities);
             await _unitOfWork.CommitAsync();
             return entities;
         }
