@@ -1,4 +1,5 @@
 ﻿using Asp.NetCoreBestPractices.API.DTOs;
+using Asp.NetCoreBestPractices.API.Filters;
 using Asp.NetCoreBestPractices.Core.Models;
 using Asp.NetCoreBestPractices.Core.Services;
 using AutoMapper;
@@ -44,10 +45,11 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return Ok(_mapper.Map<ProductWithCategoryDto>(product));
         }
 
-
+        [ValidationFilter]
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
+            //if (ModelState.IsValid) bunu  her defasında yazmak yerine validation filter yazacağız
             var newProduct = await _productService.AddAsync(_mapper.Map<Product>(productDto));
             return Created(string.Empty, _mapper.Map<ProductDto>(newProduct));
 
