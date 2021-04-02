@@ -1,4 +1,5 @@
-﻿using Asp.NetCoreBestPractices.Core.Models;
+﻿using Asp.NetCoreBestPractices.API.Filters;
+using Asp.NetCoreBestPractices.Core.Models;
 using Asp.NetCoreBestPractices.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +28,7 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             var persons = await _personService.GetAllAsync();
             return Ok(persons);
         }
-
+   
         [HttpGet("{id}")]
 
         public async Task<IActionResult> GetById(int id)

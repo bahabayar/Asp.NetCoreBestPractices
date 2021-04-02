@@ -31,13 +31,14 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return Ok(_mapper.Map<IEnumerable<ProductDto>>(products));
         }
 
-
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var product = await _productService.GetByIdAsync(id);
             return Ok(_mapper.Map<ProductDto>(product));
         }
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpGet("{id}/category")]
         public async Task<IActionResult> GetWithCategoryById(int id)
         {
@@ -45,7 +46,7 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return Ok(_mapper.Map<ProductWithCategoryDto>(product));
         }
 
-        [ValidationFilter]
+       
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
@@ -63,10 +64,6 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             var newproducts = await _productService.AddRangeAsync(productDto);
             return Ok();
         }
-
-        
-
-
         [HttpPut]
         public IActionResult Update(ProductDto productDto)
         {
@@ -75,6 +72,7 @@ namespace Asp.NetCoreBestPractices.API.Controllers
 
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
@@ -83,6 +81,7 @@ namespace Asp.NetCoreBestPractices.API.Controllers
             return NoContent();
 
         }
+
         [HttpDelete]
         [Route("removerange")]
         public IActionResult RemoveRange(IEnumerable<Product> products)

@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Asp.NetCoreBestPractices.API.Filters;
 
 namespace Asp.NetCoreBestPractices.API
 {
@@ -37,6 +38,7 @@ namespace Asp.NetCoreBestPractices.API
 
 
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<ProductNotFoundFilter>();
             services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
             services.AddScoped(typeof(IService<>),typeof(Service.Services.Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
@@ -53,7 +55,7 @@ namespace Asp.NetCoreBestPractices.API
 
             });
 
-            services.AddControllers();
+            services.AddControllers(o=> { o.Filters.Add(new ValidationFilter()); });
             services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
         }
 
