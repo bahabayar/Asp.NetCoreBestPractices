@@ -67,6 +67,10 @@ namespace Asp.NetCoreBestPractices.API.Controllers
         [HttpPut]
         public IActionResult Update(ProductDto productDto)
         {
+            //if (string.IsNullOrEmpty(productDto.Id.ToString())|| productDto.Id<=0)
+            //{
+            //    throw new Exception("Id alanı gereklidir"); //Best pratices açısından mantıklı bir şey değil direk updateproductdto oluşturup id required diyip ordan exception vermek  daha sağlıklı olucaktır
+            //}
             var product = _productService.Update(_mapper.Map<Product>(productDto));
             return NoContent();
 

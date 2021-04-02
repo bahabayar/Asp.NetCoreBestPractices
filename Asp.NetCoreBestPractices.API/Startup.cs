@@ -1,4 +1,4 @@
-using Asp.NetCoreBestPractices.Core.Repositories;
+﻿using Asp.NetCoreBestPractices.Core.Repositories;
 using Asp.NetCoreBestPractices.Core.Services;
 using Asp.NetCoreBestPractices.Core.UnitOfWork;
 using Asp.NetCoreBestPractices.Data;
@@ -20,6 +20,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Asp.NetCoreBestPractices.API.Filters;
+using Microsoft.AspNetCore.Diagnostics;
+using Asp.NetCoreBestPractices.API.DTOs;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace Asp.NetCoreBestPractices.API
 {
@@ -39,8 +43,8 @@ namespace Asp.NetCoreBestPractices.API
 
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ProductNotFoundFilter>();
-            services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
-            services.AddScoped(typeof(IService<>),typeof(Service.Services.Service<>));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -55,7 +59,7 @@ namespace Asp.NetCoreBestPractices.API
 
             });
 
-            services.AddControllers(o=> { o.Filters.Add(new ValidationFilter()); });
+            services.AddControllers(o => { o.Filters.Add(new ValidationFilter()); });
             services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
         }
 
@@ -66,6 +70,25 @@ namespace Asp.NetCoreBestPractices.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseExceptionHandler(config =>/*exception zamanında çalışıcak metotlarım */
+            {
+
+                config.Run(async context =>
+                {
+                    context.Response.StatusCode = 500;
+                    context.Response.ContentType = "application/json";
+                    var error = context.Features.Get<IExceptionHandlerFeature>();
+                    if (error!=null)
+                    {
+                        var ex = error.Error;
+                        ErrorDto errorDto = new ErrorDto();
+                        errorDto.Status = 500;
+                        errorDto.Errors.Add(ex.Message);
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(errorDto));
+                    }
+                });
+            }
+            );
 
             app.UseHttpsRedirection();
 
