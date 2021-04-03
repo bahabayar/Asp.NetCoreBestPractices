@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreBestPractices.API", "Asp.NetCoreBestPractices.API\Asp.NetCoreBestPractices.API.csproj", "{618646D3-BF80-4E5B-A7B2-839B8DFD893B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.API", "Asp.NetCoreBestPractices.API\Asp.NetCoreBestPractices.API.csproj", "{618646D3-BF80-4E5B-A7B2-839B8DFD893B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreBestPractices.Core", "Asp.NetCoreBestPractices.Core\Asp.NetCoreBestPractices.Core.csproj", "{A091F441-235B-4D1F-AAA2-B2189CFC456F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.Core", "Asp.NetCoreBestPractices.Core\Asp.NetCoreBestPractices.Core.csproj", "{A091F441-235B-4D1F-AAA2-B2189CFC456F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreBestPractices.Data", "Asp.NetCoreBestPractices.Data\Asp.NetCoreBestPractices.Data.csproj", "{F1B60638-60AC-4351-BA54-02AF378D8ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.Data", "Asp.NetCoreBestPractices.Data\Asp.NetCoreBestPractices.Data.csproj", "{F1B60638-60AC-4351-BA54-02AF378D8ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreBestPractices.Service", "Asp.NetCoreBestPractices.Service\Asp.NetCoreBestPractices.Service.csproj", "{66961BB0-2ABE-4C17-A687-1DF663CE9952}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.Service", "Asp.NetCoreBestPractices.Service\Asp.NetCoreBestPractices.Service.csproj", "{66961BB0-2ABE-4C17-A687-1DF663CE9952}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreBestPractices.Web", "Asp.NetCoreBestPractices.Web\Asp.NetCoreBestPractices.Web.csproj", "{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{66961BB0-2ABE-4C17-A687-1DF663CE9952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66961BB0-2ABE-4C17-A687-1DF663CE9952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66961BB0-2ABE-4C17-A687-1DF663CE9952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
