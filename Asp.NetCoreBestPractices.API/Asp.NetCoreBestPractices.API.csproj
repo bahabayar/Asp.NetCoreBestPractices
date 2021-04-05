@@ -15,8 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Asp.NetCoreBestPractices.Core\Asp.NetCoreBestPractices.Core.csproj" />
-    <ProjectReference Include="..\Asp.NetCoreBestPractices.Data\Asp.NetCoreBestPractices.Data.csproj" />
     <ProjectReference Include="..\Asp.NetCoreBestPractices.Service\Asp.NetCoreBestPractices.Service.csproj" />
   </ItemGroup>
 
