@@ -9,7 +9,7 @@ namespace Asp.NetCoreBestPractices.Web.DTOs
     public class CategoryDto
     {
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="{0} space is blank!!")]
         public string Name { get; set; }
     }
 }
