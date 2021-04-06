@@ -39,5 +39,20 @@ namespace Asp.NetCoreBestPractices.Web.Controllers
             return RedirectToAction("Index");
                 
         }
+
+        public async Task<IActionResult> Update(int id)
+        {
+            var category = await _categoryService.GetByIdAsync(id);
+            return View (_mapper.Map<CategoryDto>(category));
+        
+        }
+        [HttpPost]
+        public IActionResult Update(CategoryDto categoryDto)
+        {
+            var newCategory = _mapper.Map<Category>(categoryDto);
+            _categoryService.Update(newCategory);
+            return RedirectToAction("Index");
+        
+        }
     }
 }

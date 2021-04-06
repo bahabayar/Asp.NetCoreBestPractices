@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.Service", "Asp.NetCoreBestPractices.Service\Asp.NetCoreBestPractices.Service.csproj", "{66961BB0-2ABE-4C17-A687-1DF663CE9952}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.NetCoreBestPractices.Web", "Asp.NetCoreBestPractices.Web\Asp.NetCoreBestPractices.Web.csproj", "{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Asp.NetCoreBestPractices.Web", "Asp.NetCoreBestPractices.Web\Asp.NetCoreBestPractices.Web.csproj", "{9F67FAE1-FD4D-43E6-8BA9-28CC48FEA68E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
