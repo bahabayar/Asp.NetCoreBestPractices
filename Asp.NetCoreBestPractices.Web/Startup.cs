@@ -33,6 +33,7 @@ namespace Asp.NetCoreBestPractices.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ProductNotFoundFilter>();
             services.AddScoped<CategoryNotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

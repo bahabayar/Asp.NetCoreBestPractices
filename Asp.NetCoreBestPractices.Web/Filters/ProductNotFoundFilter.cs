@@ -28,9 +28,9 @@ namespace Asp.NetCoreBestPractices.Web.Filters
             else
             {
                 ErrorDto errorDto = new ErrorDto();
-                errorDto.Status = 404;
+                
                 errorDto.Errors.Add($"Id'si {id} olan ürün veritabanında bulunamadı");
-                context.Result = new NotFoundObjectResult(errorDto);
+                context.Result = new RedirectToActionResult("Error", "Home", errorDto);
             }
         }
     }
