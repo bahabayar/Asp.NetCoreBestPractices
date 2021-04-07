@@ -1,6 +1,7 @@
 ﻿using Asp.NetCoreBestPractices.Core.Models;
 using Asp.NetCoreBestPractices.Core.Services;
 using Asp.NetCoreBestPractices.Web.DTOs;
+using Asp.NetCoreBestPractices.Web.Filters;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -53,6 +54,13 @@ namespace Asp.NetCoreBestPractices.Web.Controllers
             _categoryService.Update(newCategory);
             return RedirectToAction("Index");
         
+        }
+        [ServiceFilter(typeof(CategoryNotFoundFilter))]
+        public IActionResult Delete(int id)
+        {
+           var deleteCategory =  _categoryService.GetByIdAsync(id).Result;
+            _categoryService.Remove(deleteCategory);
+            return RedirectToAction("Index");
         }
     }
 }

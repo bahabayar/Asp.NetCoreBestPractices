@@ -5,6 +5,7 @@ using Asp.NetCoreBestPractices.Data;
 using Asp.NetCoreBestPractices.Data.Repository;
 using Asp.NetCoreBestPractices.Data.UnitOfWorks;
 using Asp.NetCoreBestPractices.Service.Services;
+using Asp.NetCoreBestPractices.Web.Filters;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace Asp.NetCoreBestPractices.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<CategoryNotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service.Services.Service<>));
