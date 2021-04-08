@@ -1,5 +1,6 @@
 ﻿using Asp.NetCoreBestPractices.Core.Models;
 using Asp.NetCoreBestPractices.Core.Services;
+using Asp.NetCoreBestPractices.Web.ApiService;
 using Asp.NetCoreBestPractices.Web.DTOs;
 using Asp.NetCoreBestPractices.Web.Filters;
 using AutoMapper;
@@ -13,18 +14,20 @@ namespace Asp.NetCoreBestPractices.Web.Controllers
 {
     public class CategoriesController : Controller
     {
+        private readonly CategoryApiService _categoryApiService;
         private readonly IMapper _mapper;
         private readonly ICategoryService _categoryService;
-        public CategoriesController(ICategoryService categoryService,IMapper mapper)
+        public CategoriesController(ICategoryService categoryService,IMapper mapper,CategoryApiService categoryApiService)
         {
             _mapper = mapper;
             _categoryService = categoryService;
+            _categoryApiService = categoryApiService;
         }
 
 
         public async Task<IActionResult> Index()
         {
-            var categories = await _categoryService.GetAllAsync();
+            var categories = await _categoryApiService.GetAllAsync();
             return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
         }
 
@@ -36,7 +39,7 @@ namespace Asp.NetCoreBestPractices.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CategoryDto categoryDto)
         {
-            await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+            await _categoryApiService.AddAsync(categoryDto);
             return RedirectToAction("Index");
                 
         }
