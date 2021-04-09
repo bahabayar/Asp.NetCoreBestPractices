@@ -62,6 +62,7 @@ namespace Asp.NetCoreBestPractices.API
 
             services.AddControllers(o => { o.Filters.Add(new ValidationFilter()); });
             services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,6 +83,15 @@ namespace Asp.NetCoreBestPractices.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
         }
     }
